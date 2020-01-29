@@ -22,12 +22,12 @@ export class UsersController {
 
     @Post()
     async insert(@Body() user : User) : Promise<User> {
-        return this.userService.create(user);
+        return this.userService.insert(user);
     }
     
     @Put(':id')
     async update(@Param('id') id : number, @Body() user : User) : Promise<UpdateResult> {
-        return this.userService.save(id, user);
+        return this.userService.update(id, user);
     }
 
     @Delete(':id')

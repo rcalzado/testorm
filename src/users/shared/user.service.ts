@@ -18,12 +18,12 @@ export class UserService {
 		return this.userRepository.find();
 	}
 
-	save(id: number, user: User): Promise<UpdateResult> {
-		return this.userRepository.update(id, user);
+	insert(user: User): Promise<User> {
+		return this.userRepository.save(user);
 	}
 
-	create(user: User): Promise<User> {
-		return this.userRepository.save(user);
+	update(id: number, user: User): Promise<UpdateResult> {
+		return this.userRepository.update(id, user);
 	}
 
 	delete(id: number): Promise<DeleteResult> {
