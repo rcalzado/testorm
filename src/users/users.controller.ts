@@ -21,7 +21,7 @@ export class UsersController {
     }
 
     @Post()
-    async save(@Body() user : User) : Promise<User> {
+    async insert(@Body() user : User) : Promise<User> {
         return this.userService.create(user);
     }
     
