@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { PessoasModule } from './pessoas/pessoas.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './entities/User';
-import { Photo } from './entities/Photo';
+import { Pessoa } from './entities/Pessoa';
+import { PessoaFisica } from './entities/PessoaFisica';
+import { PessoaJuridica } from './entities/PessoaJuridica';
 
 @Module({
 	imports: [
@@ -17,10 +18,10 @@ import { Photo } from './entities/Photo';
 				"password": "mysqladmin",
 				"database": "testorm",
 				"synchronize": true,
-				"entities": [User, Photo]
+				"entities": [Pessoa, PessoaFisica, PessoaJuridica]
 			}
 		),
-		UsersModule
+		PessoasModule
 	],
 	controllers: [AppController],
 	providers: [AppService],
