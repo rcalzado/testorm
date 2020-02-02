@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pessoa } from './entities/Pessoa';
 import { PessoaFisica } from './entities/PessoaFisica';
 import { PessoaJuridica } from './entities/PessoaJuridica';
+import { Motorista } from './entities/Motorista';
 
 @Module({
 	imports: [
@@ -18,7 +19,7 @@ import { PessoaJuridica } from './entities/PessoaJuridica';
 				"password": "mysqladmin",
 				"database": "testorm",
 				"synchronize": true,
-				"entities": [Pessoa, PessoaFisica, PessoaJuridica]
+				"entities": [Pessoa, PessoaFisica, PessoaJuridica, Motorista]
 			}
 		),
 		PessoasModule

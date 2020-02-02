@@ -1,6 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, OneToOne} from "typeorm";
 import { PessoaFisica } from "./PessoaFisica";
 import { PessoaJuridica } from "./PessoaJuridica";
+import { Motorista } from "./Motorista";
 
 @Entity()
 export class Pessoa {
@@ -20,10 +21,16 @@ export class Pessoa {
     })
     pessoaFisica: PessoaFisica;
 
-
     @OneToOne(() => PessoaJuridica, pessoaJuridica => pessoaJuridica.pessoa, {
         cascade: true,
         eager: true
     })
     pessoaJuridica: PessoaJuridica;    
+
+    @OneToOne(() => Motorista, motorista => motorista.pessoa, {
+        cascade: true,
+        eager: true
+    })
+    motorista: Motorista;      
+
 }
