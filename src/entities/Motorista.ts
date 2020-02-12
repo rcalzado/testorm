@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, Index, OneToOne, JoinColumn} fro
 import { Pessoa } from "./Pessoa";
 
 
-@Entity()
+@Entity({ synchronize: false })
 export class Motorista {
 
     @PrimaryGeneratedColumn()
@@ -15,7 +15,7 @@ export class Motorista {
     @OneToOne(() => Pessoa, pessoa => pessoa.motorista, {
         nullable: false,
         onUpdate: 'CASCADE', 
-        onDelete: 'CASCADE'
+        onDelete: 'RESTRICT'
     })
     @JoinColumn()
     pessoa: Pessoa;      
