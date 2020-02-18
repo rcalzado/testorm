@@ -3,10 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Pessoa } from './entities/Pessoa';
-import { PessoaFisica } from './entities/PessoaFisica';
-import { PessoaJuridica } from './entities/PessoaJuridica';
-import { Motorista } from './entities/Motorista';
 
 @Module({
 	imports: [
@@ -18,10 +14,9 @@ import { Motorista } from './entities/Motorista';
 				"username": "dba",
 				"password": "mysqladmin",
 				"database": "testorm",
-				"synchronize": true,
-				"entities": [Pessoa, PessoaFisica, PessoaJuridica, Motorista]
-			}
-		),
+				"entities": [ __dirname + "/entities/*.{ts,js}"],
+				"synchronize": true
+			}),
 		PessoasModule
 	],
 	controllers: [AppController],
